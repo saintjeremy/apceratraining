@@ -1,3 +1,15 @@
+--------------------------------------------------
+Step A.1.2 - The following code is for Gemfile
+--------------------------------------------------
+
+source "https://rubygems.org"
+gem "apcera-stager-api"
+
+
+--------------------------------------
+Step A.2.2 - code for stager.rb
+---------------------------------------
+
 #!/usr/bin/env ruby
 
 require "bundler"
