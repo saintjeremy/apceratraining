@@ -4,12 +4,12 @@ if you wish to do so.
 *********************************************************
 
 --------------------------
-Exercise C:  Step C.1.4
+Exercise C:  Step C.1.2
 --------------------------
+apc docker run mysql --restart always --image mysql --tag 5.7.11 --port 3306 --provider /apcera/providers::apcfs  --env-set MYSQL_ROOT_PASSWORD=password
 
-sed -i "s/bind-address\t\t= 127.0.0.1/bind-address = 0.0.0.0/1" /etc/mysql/my.cnf &&
-service mysql restart &&
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION; FLUSH PRIVILEGES;" &&
-service mysql restart &&
-exit
 
+--------------------------
+Exercise C:  Step C.1.5
+--------------------------
+apc provider register docker-mysql-provider --job docker-mysql -u mysql://root:password@docker-mysql
