@@ -1,0 +1,46 @@
+{
+  "jobs": {
+    "job::/sandbox/NAME::nats-server": {
+      "docker": {
+        "image": "nats:latest"
+      },
+      "exposed_ports": [4222, 8222],
+      "routes": [{
+        "type": "http",
+        "endpoint": "NAME.nats-server.kiso.io",
+        "config": {
+          "/*": [{
+            "port": 8222
+          }]
+        }
+      }],
+      "state": "started"
+    },
+    "job::/sandbox/NAME::nats-ping": {
+      "docker": {
+        "image": "apcerademos/nats-ping:latest"
+      },
+      "links": {
+        "NATS": {
+          "fqn": "job::/sandbox/NAME::nats-server",
+          "port": 4222 
+        }
+      },
+      "exposed_ports": [0],
+      "routes": [{
+        "type": "http",
+        "endpoint": "NAME.nats-ping.kiso.io",
+        "config": {
+          "/*": [{
+            "port": 0
+          }]
+        }
+      }],
+      "ssh": true,
+      "state": "started",
+      "scheduling_tags": {
+        "hard":["IM3"]
+      }
+    }
+  }
+}

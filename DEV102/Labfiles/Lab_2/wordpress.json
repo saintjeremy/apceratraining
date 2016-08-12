@@ -1,0 +1,30 @@
+{
+  "allow_egress":true,
+  "exposed_ports":[
+    80
+  ],
+  "image_url":"https://registry-1.docker.io/library/wordpress:latest",
+  "job_fqn":"job::/sandbox/NAME::wordpress",
+  "resources":{
+    "cpu":0,
+    "disk":1073741824,
+    "memory":268435456,
+    "netmax":0,
+    "network":5000000
+  },
+  "restart_config":{
+    "maximum_attempts":0,
+    "restart_mode":"no"
+  },
+  "routes":{
+    "http://NAME.wordpress.kiso.io":80
+  },
+  "env":{
+    "WORDPRESS_DB_HOST": "{{ (binding_service \"mysql-srvc-binding\").URI.Host }}:20000",
+    "WORDPRESS_DB_USER": "{{ (binding_service \"mysql-srvc-binding\").URI.User }}",
+    "WORDPRESS_DB_PASSWORD": "{{ (binding_service \"mysql-srvc-binding\").URI.Password }}",
+    "WORDPRESS_DB_NAME": "{{ (binding_service \"mysql-srvc-binding\").URI.TrimmedPath }}"
+  },
+  "volume_provider_fqn":"provider::/apcera/providers::apcfs",
+  "start":false
+}
