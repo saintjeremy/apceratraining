@@ -1,0 +1,9 @@
+{
+  "docs": [
+  	{
+  		  "name": "user-policy-NAME",
+		  "for_version": 1,
+		  "text": "<continuum-policy description=\"Student policy for DEV102 - Updated via Policy API\">\n\njob::/sandbox/NAME {\n    if(auth_server@apcera.me->name == \"NAME\")\n    {\n\trole admin\n    }\n}\n\npackage::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n        role admin\n    }\n}\n\nservice::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n        role admin\n    }\n}\n\nprovider::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n        role admin\n    }\n}\n\ngateway::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n        role admin\n    }\n}\n\nstagpipe::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n        role admin\n    }\n}\n\njob::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n        docker.allow \"*\"\n    }\n}\n\nnetwork::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n\trole admin\n    }\n}\n\nsempiperule::/sandbox/NAME {\n    if (auth_server@apcera.me->name == \"NAME\")\n    {\n        permit create, read\n    }\n}\n\nroute::/http/io/kiso/ {\n    if (job fqnMatch \"job::/sandbox/NAME\") {\n        permit map\n    }\n}\n"
+  	}
+  ]
+}

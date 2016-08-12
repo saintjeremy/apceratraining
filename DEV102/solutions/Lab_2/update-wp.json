@@ -1,0 +1,157 @@
+{
+  "uuid": "a792c8fc-23d3-4bd8-84c3-c7215f04c719",
+  "updated_by": "yoko",
+  "created_by": "yoko",
+  "updated_at": "2016-08-11T20:57:59.088429462Z",
+  "created_at": "2016-08-11T20:56:59.464603716Z",
+  "bindings": {
+    "binding::/::30484dcc-ef5e-41a0-886e-6b27798587ea": {
+      "uuid": "fde0318f-a4d9-40ed-85bc-0915dad26e75",
+      "name": "mysql_srvc_binding",
+      "fqn": "binding::/::30484dcc-ef5e-41a0-886e-6b27798587ea",
+      "job_fqn": "job::/sandbox/yoko::wordpress",
+      "env_var": [
+        "JDBC_MYSQL_URI",
+        "MYSQL_SRVC_BINDING_URI",
+        "MYSQL_URI"
+      ],
+      "service_fqn": "service::/sandbox/yoko::mysql-service"
+    },
+    "binding::/::40c0681": {
+      "uuid": "cb9700c9-1a6c-4164-933c-4c822fb80e00",
+      "name": "",
+      "fqn": "binding::/::40c0681",
+      "job_fqn": "job::/sandbox/yoko::wordpress",
+      "env_var": [
+        "NFS_URI"
+      ],
+      "parameters": {
+        "mountpath": "/var/www/html",
+        "namespace": "9d86c6f9-fdce-4b4a-8069-30e4687a5e3c2589e452-4a99-4d33-8a77-b5c751c89dd4"
+      },
+      "service_fqn": "service::/sandbox/yoko::volume-74739f9"
+    },
+    "binding::/::cbb7108": {
+      "uuid": "3fd6f950-228a-448d-915c-c7c78ad8f04a",
+      "name": "",
+      "fqn": "binding::/::cbb7108",
+      "job_fqn": "job::/sandbox/yoko::wordpress",
+      "env_var": [
+        "CBB7108_URI",
+        "NETWORK_URI"
+      ],
+      "parameters": {
+        "ipnet": "any",
+        "portrange": "all",
+        "protocol": "all"
+      },
+      "service_fqn": "service::/apcera::outside"
+    }
+  },
+  "ports": [
+    {
+      "number": 222,
+      "optional": true
+    },
+    {
+      "number": 80,
+      "optional": true,
+      "routes": [
+        {
+          "type": "http",
+          "endpoint": "yoko.wordpress.kiso.io",
+          "weight": 0
+        }
+      ]
+    }
+  ],
+  "logs": [
+    {
+      "file": "/logs/stdout.*.log",
+      "channel": "job.$JOB_UUID.$INSTANCE_UUID.stdout"
+    },
+    {
+      "file": "/logs/stderr.*.log",
+      "channel": "job.$JOB_UUID.$INSTANCE_UUID.stderr"
+    }
+  ],
+  "name": "wordpress",
+  "fqn": "job::/sandbox/yoko::wordpress",
+  "num_instances": 1,
+  "packages": [
+    {
+      "uuid": "5044e36e-1b8c-4b6a-9154-faa8a2bedbfd",
+      "install_path": "/",
+      "state": "unknown",
+      "source": "user"
+    },
+    {
+      "uuid": "5044e36e-1b8c-4b6a-9154-faa8a2bedbfd",
+      "state": "ready",
+      "source": "system"
+    }
+  ],
+  "processes": {
+    "app": {
+      "start_command_raw": [
+        "/bin/sh",
+        "-c",
+        "if cd '/var/www/html'; then exec \"$@\"; else echo >&2 \"cd '/var/www/html' failed\"; exit 1; fi",
+        "--",
+        "/entrypoint.sh",
+        "apache2-foreground"
+      ],
+      "start_command": "",
+      "start_command_timeout": 30,
+      "stop_command_raw": [],
+      "stop_command": "",
+      "stop_timeout": 5,
+      "environment": {
+        "APACHE_CONFDIR": "/etc/apache2",
+        "APACHE_ENVVARS": "/etc/apache2/envvars",
+        "GPG_KEYS": "0BD78B5F97500D450838F95DFE857D9A90D90EC1 6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "PHPIZE_DEPS": "autoconf \t\tfile \t\tg++ \t\tgcc \t\tlibc-dev \t\tmake \t\tpkg-config \t\tre2c",
+        "PHP_EXTRA_BUILD_DEPS": "apache2-dev",
+        "PHP_EXTRA_CONFIGURE_ARGS": "--with-apxs2",
+        "PHP_FILENAME": "php-5.6.24.tar.xz",
+        "PHP_INI_DIR": "/usr/local/etc/php",
+        "PHP_SHA256": "ed7c38c6dac539ade62e08118258f4dac0c49beca04d8603bee4e0ea6ca8250b",
+        "PHP_VERSION": "5.6.24",
+        "WORDPRESS_DB_HOST": "{{ (binding_service \"mysql-srvc-binding\").URI.Host }}:20000",
+        "WORDPRESS_DB_NAME": "{{ (binding_service \"mysql-srvc-binding\").URI.TrimmedPath }}",
+        "WORDPRESS_DB_PASSWORD": "{{ (binding_service \"mysql-srvc-binding\").URI.Password }}",
+        "WORDPRESS_DB_USER": "{{ (binding_service \"mysql-srvc-binding\").URI.User }}",
+        "WORDPRESS_SHA1": "835b68748dae5a9d31c059313cd0150f03a49269",
+        "WORDPRESS_VERSION": "4.5.3"
+      },
+      "user": "root"
+    }
+  },
+  "resources": {
+    "cpu": 0,
+    "memory": 268435456,
+    "disk": 1073741824,
+    "network": 5000000,
+    "netmax": 0
+  },
+  "rollout": {
+    "force_stop_old_instances_after": 120,
+    "flapping_minimum_restarts": 3,
+    "flapping_percent": 0.5,
+    "flapping_window": 300,
+    "errored_state_window": 0
+  },
+  "restart": {
+    "restart_mode": "no"
+  },
+  "state": "started",
+  "tags": {
+    "app": "wordpress",
+    "docker": "wordpress",
+    "ssh": "true"
+  },
+  "version_id": 4,
+  "network_ref": null,
+  "aggregate_network_routes": null
+}
