@@ -1,0 +1,102 @@
+{
+  "uuid": "3c64e17d-7c6f-4ba7-89cb-1a880d112000",
+  "updated_by": "NAME",
+  "created_by": "NAME",
+  "updated_at": "2016-08-12T22:41:40.787389749Z",
+  "created_at": "2016-08-12T22:31:24.196110338Z",
+  "bindings": {
+    "binding::/::a3edfa52-ae23-4fe5-8bea-11d3ac1f8f92": {
+      "name": "nats",
+      "fqn": "binding::/::a3edfa52-ae23-4fe5-8bea-11d3ac1f8f92",
+      "job_fqn": "job::/sandbox/NAME::nats-client",
+      "env_var": [
+        "A3EDFA52AE234FE58BEA11D3AC1F8F92_URI",
+        "NATS_URI"
+      ],
+      "target_job_fqn": "job::/sandbox/NAME::nats-server",
+      "target_job_uuid": "99f3b2ed-96a8-4a38-9aa5-2579adb2341a",
+      "target_job_port": 4222
+    }
+  },
+  "ports": [
+    {
+      "number": 222,
+      "optional": true
+    }
+  ],
+  "logs": [
+    {
+      "file": "/logs/stdout.*.log",
+      "channel": "job.$JOB_UUID.$INSTANCE_UUID.stdout"
+    },
+    {
+      "file": "/logs/stderr.*.log",
+      "channel": "job.$JOB_UUID.$INSTANCE_UUID.stderr"
+    }
+  ],
+  "name": "nats-client",
+  "fqn": "job::/sandbox/NAME::nats-client",
+  "num_instances": 1,
+  "packages": [
+    {
+      "uuid": "80903aa0-50d8-4f22-9d67-38f85abe8037",
+      "install_path": "/",
+      "state": "unknown",
+      "source": "user"
+    },
+    {
+      "uuid": "80903aa0-50d8-4f22-9d67-38f85abe8037",
+      "state": "ready",
+      "source": "system"
+    }
+  ],
+  "processes": {
+    "app": {
+      "start_command_raw": [
+        "/bin/sh",
+        "-c",
+        "if cd '/go'; then exec \"$@\"; else echo >&2 \"cd '/go' failed\"; exit 1; fi",
+        "--",
+        "/bin/sh",
+        "-c",
+        "./nats-ping"
+      ],
+      "start_command": "",
+      "start_command_timeout": 30,
+      "stop_command_raw": [],
+      "stop_command": "",
+      "stop_timeout": 5,
+      "environment": {
+        "GOPATH": "/go",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/go/bin"
+      },
+      "user": "root"
+    }
+  },
+  "resources": {
+    "cpu": 0,
+    "memory": 268435456,
+    "disk": 1073741824,
+    "network": 5000000,
+    "netmax": 0
+  },
+  "rollout": {
+    "force_stop_old_instances_after": 120,
+    "flapping_minimum_restarts": 3,
+    "flapping_percent": 0.5,
+    "flapping_window": 300,
+    "errored_state_window": 0
+  },
+  "restart": {
+    "restart_mode": "always"
+  },
+  "state": "started",
+  "tags": {
+    "app": "nats-client",
+    "docker": "nats-client",
+    "ssh": "true"
+  },
+  "version_id": 2,
+  "network_ref": null,
+  "aggregate_network_routes": null
+}

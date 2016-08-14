@@ -20,10 +20,10 @@
     "http://NAME.wordpress.kiso.io":80
   },
   "env":{
-    "WORDPRESS_DB_HOST": "{{ (binding_service \"mysql-srvc-binding\").URI.Host }}:3306",
-    "WORDPRESS_DB_USER": "{{ (binding_service \"mysql-srvc-binding\").URI.User }}",
-    "WORDPRESS_DB_PASSWORD": "{{ (binding_service \"mysql-srvc-binding\").URI.Password }}",
-    "WORDPRESS_DB_NAME": "{{ (binding_service \"mysql-srvc-binding\").URI.TrimmedPath }}"
+    "WORDPRESS_DB_HOST": "{{ (binding_service \"mysql-srvc\").URI.Host }}:3306",
+    "WORDPRESS_DB_USER": "{{ (binding_service \"mysql-srvc\").URI.User }}",
+    "WORDPRESS_DB_PASSWORD": "{{ (binding_service \"mysql-srvc\").URI.Password }}",
+    "WORDPRESS_DB_NAME": "{{ (binding_service \"mysql-srvc\").URI.TrimmedPath }}"
   },
   "volume_provider_fqn":"provider::/apcera/providers::apcfs",
   "start":false
