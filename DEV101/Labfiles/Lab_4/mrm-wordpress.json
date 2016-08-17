@@ -1,6 +1,6 @@
 {
     "jobs": {
-        "job::/sandbox/lparis::myblog": {
+        "job::/sandbox/NAME::myblog": {
             "docker": {
                 "image": "library/wordpress:latest"
             },
@@ -19,10 +19,10 @@
                     "fqn": "service::/apcera::outside"
                 },
                 "mysql-wordpress": {
-                    "fqn": "service::/sandbox/lparis::myblog-mysql"
+                    "fqn": "service::/sandbox/NAME::myblog-mysql"
                 },
                 "var-www-html": {
-                    "fqn": "service::/sandbox/lparis::wordpress-www-html",
+                    "fqn": "service::/sandbox/NAME::wordpress-www-html",
                     "params": {
                         "mountpath": "/var/www/html"
                     }
@@ -42,13 +42,13 @@
         }
     },
     "services": {
-        "service::/sandbox/lparis::myblog-mysql": {
+        "service::/sandbox/NAME::myblog-mysql": {
             "description": "Database for myblog wordpress",
             "name": "myblog-mysql",
             "provider_fqn": "provider::/apcera/providers::mysql",
             "type": "mysql"
         },
-        "service::/sandbox/lparis::wordpress-www-html": {
+        "service::/sandbox/NAME::wordpress-www-html": {
             "description": "NFS storage for blog files",
             "name": "wordpress-www-html",
             "provider_fqn": "provider::/apcera/providers::apcfs",
