@@ -7,8 +7,7 @@ if you wish to do so.
 Exercise C:  Step C.1.2
 --------------------------
 
-apc docker run docker-mysql --restart always --image mysql 
---tag 5.7.11 --port 3306 --provider /apcera/providers::apcfs  --env-set MYSQL_ROOT_PASSWORD=password
+apc docker run docker-mysql --restart always --image mysql --tag 5.7.11 --port 3306 --provider /apcera/providers::apcfs  --env-set MYSQL_ROOT_PASSWORD=password
 
 --------------------------
 Exercise C:  Step C.1.4
