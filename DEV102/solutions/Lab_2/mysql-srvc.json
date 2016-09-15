@@ -1,6 +1,6 @@
 {
   "description":"MySQL DB service for WordPress",
-  "fqn":"service::/sandbox/NAME::mysql-srvc",
+  "fqn":"service::/sandbox/<name>::mysql-srvc",
   "name":"mysql-srvc",
   "provider_fqn":"provider::/apcera/providers::mysql"
 }

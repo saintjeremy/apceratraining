@@ -4,7 +4,7 @@
     80
   ],
   "image_url":"https://registry-1.docker.io/library/wordpress:latest",
-  "job_fqn":"job::/sandbox/NAME::wordpress",
+  "job_fqn":"job::/sandbox/<name>::wordpress",
   "resources":{
     "cpu":0,
     "disk":1073741824,

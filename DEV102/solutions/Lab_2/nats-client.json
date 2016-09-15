@@ -1,5 +1,5 @@
 { 
  "image_url":"https://registry-1.docker.io/apcerademos/nats-ping:latest",
- "job_fqn":"job::/sandbox/NAME::nats-client",
+ "job_fqn":"job::/sandbox/<name>::nats-client",
  "start":false
 }
