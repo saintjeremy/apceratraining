@@ -1,6 +1,6 @@
 {
   "image_url":"https://registry-1.docker.io/library/nats:latest",
-  "job_fqn":"job::/sandbox/NAME::nats-server",
+  "job_fqn":"job::/sandbox/<name>::nats-server",
   "volume_provider_fqn":"provider::/apcera/providers::apcfs",
   "start":true
 }

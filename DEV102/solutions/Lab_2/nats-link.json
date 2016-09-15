@@ -1,7 +1,6 @@
 {
-   "job_fqn": "job::/sandbox/NAME::nats-client",
+   "job_fqn": "job::/sandbox/<name>::nats-client",
    "name": "nats",
-   "target_job_fqn": "job::/sandbox/NAME::nats-server",
+   "target_job_fqn": "job::/sandbox/<name>::nats-server",
    "target_job_port": 4222
 }
-

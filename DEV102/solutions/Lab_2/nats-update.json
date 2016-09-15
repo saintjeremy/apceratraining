@@ -1,19 +1,19 @@
 {
   "uuid": "3c64e17d-7c6f-4ba7-89cb-1a880d112000",
-  "updated_by": "NAME",
-  "created_by": "NAME",
+  "updated_by": "<name>",
+  "created_by": "<name>",
   "updated_at": "2016-08-12T22:41:40.787389749Z",
   "created_at": "2016-08-12T22:31:24.196110338Z",
   "bindings": {
     "binding::/::a3edfa52-ae23-4fe5-8bea-11d3ac1f8f92": {
       "name": "nats",
       "fqn": "binding::/::a3edfa52-ae23-4fe5-8bea-11d3ac1f8f92",
-      "job_fqn": "job::/sandbox/NAME::nats-client",
+      "job_fqn": "job::/sandbox/<name>::nats-client",
       "env_var": [
         "A3EDFA52AE234FE58BEA11D3AC1F8F92_URI",
         "NATS_URI"
       ],
-      "target_job_fqn": "job::/sandbox/NAME::nats-server",
+      "target_job_fqn": "job::/sandbox/<name>::nats-server",
       "target_job_uuid": "99f3b2ed-96a8-4a38-9aa5-2579adb2341a",
       "target_job_port": 4222
     }
@@ -35,7 +35,7 @@
     }
   ],
   "name": "nats-client",
-  "fqn": "job::/sandbox/NAME::nats-client",
+  "fqn": "job::/sandbox/<name>::nats-client",
   "num_instances": 1,
   "packages": [
     {

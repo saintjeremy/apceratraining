@@ -1,5 +1,5 @@
 {
-    "job_fqn":"job::/sandbox/NAME::wordpress",
+    "job_fqn":"job::/sandbox/<name>::wordpress",
     "name":"mysql-srvc-binding",
-    "service_fqn":"service::/sandbox/NAME::mysql-srvc"
+    "service_fqn":"service::/sandbox/<name>::mysql-srvc"
 }
