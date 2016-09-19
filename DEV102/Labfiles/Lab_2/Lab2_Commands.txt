@@ -1,0 +1,121 @@
+*********************************************************
+You can copy and paste the command from this text file
+if you wish to do so.
+*********************************************************
+
+--------------------------
+Exercise A:  Step A.1.5
+--------------------------
+Linux & Mac:
+curl -X POST --data "@nats-server.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/jobs/docker"
+
+Windows:
+curl -X POST --data "@nats-server.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/jobs/docker"
+
+--------------------------
+Exercise A:  Step A.2.1
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "<location URL>" | jq
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "<location URL>" | jq-win64
+
+--------------------------
+Exercise B:  Step B.1.2
+--------------------------
+Linux & Mac:
+curl -X POST --data "@nats-client.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/jobs/docker"
+
+Windows:
+curl -X POST --data "@nats-client.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/jobs/docker"
+
+--------------------------
+Exercise B:  Step B.2.2
+--------------------------
+Linux & Mac:
+curl -X POST --data "@nats-link.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/bindings" | jq
+
+Windows:
+curl -X POST --data "@nats-link.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/bindings" | jq-win64
+
+--------------------------
+Exercise C:  Step C.1.2
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/jobs/<UUID>" | jq
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/jobs/<UUID>" | jq-win64
+
+
+--------------------------
+Exercise D:  Step D.1.1
+--------------------------
+Linux & Mac:
+curl -X POST --data "@mysql-srvc.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/services"
+
+Windows:
+curl -X POST --data "@mysql-srvc.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/services"
+
+--------------------------
+Exercise D:  Step D.1.2
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/services" | jq
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/services" | jq-win64
+
+
+--------------------------
+Exercise D:  Step D.2.2
+--------------------------
+Linux & Mac:
+curl -X POST --data "@wordpress.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/jobs/docker"
+
+Windows:
+curl -X POST --data "@wordpress.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/jobs/docker"
+
+--------------------------
+Exercise D:  Step D.2.3
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "<location URL>" | jq
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "<location URL>" | jq-win64
+
+--------------------------
+Exercise D:  Step D.3.1
+--------------------------
+Linux & Mac:
+curl -X POST --data "@mysql-srvc-binding.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/bindings"
+
+Windows:
+curl -X POST --data "@mysql-srvc-binding.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/bindings"
+
+--------------------------
+Exercise D:  Step D.4.1
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/jobs/<UUID>" > update-wp.json
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/jobs/<UUID>" > update-wp.json
+
+
+--------------------------
+Exercise D:  Step D.4.2
+--------------------------
+Linux & Mac:
+curl -X PUT --data "@update-wp.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "http://api.kiso.io/v1/jobs/<UUID>" | jq
+
+Windows:
+curl -X PUT --data "@update-wp.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "http://api.kiso.io/v1/jobs/<UUID>" | jq-win64
+
+
+--------------------------
+Exercise F:  Step F.1.6
+--------------------------
+apc app create docker-api-tester -sc “node index; tail -f” --batch -dr

@@ -1,0 +1,40 @@
+*********************************************************
+You can copy and paste the command from this text file
+if you wish to do so.
+*********************************************************
+
+--------------------------
+Exercise A:  Step A.2.1
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "$CLUSTER/v1/policy" | jq
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "%CLUSTER%/v1/policy" | jq-win64
+
+--------------------------
+Exercise A:  Step A.2.2
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "$CLUSTER/v1/policy/user-policy-<name>" | jq
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "%CLUSTER%/v1/policy/user-policy-<name>" | jq-win64
+
+--------------------------
+Exercise B:  Step B.1.4
+--------------------------
+Linux & Mac:
+curl -X PUT --data "@update-policy.json" -H "Content-Type: application/json" -H "Authorization: $TOKEN" "$CLUSTER/v1/policy"
+
+Windows:
+curl -X PUT --data "@update-policy.json" -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "%CLUSTER%/v1/policy"
+
+--------------------------
+Exercise B:  Step B.2.1
+--------------------------
+Linux & Mac:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: $TOKEN" "$CLUSTER/v1/policy/user-policy-<name>?version=<#>"
+
+Windows:
+curl -X GET -H "Content-Type: application/json" -H "Authorization: %TOKEN%" "%CLUSTER%/v1/policy/user-policy-<name>?version=<#>"

@@ -1,6 +1,6 @@
 {
     "jobs": {
-        "job::/sandbox/NAME::mrm-todo": {
+        "job::/sandbox/<name>::mrm-todo": {
             "docker": {
                 "image": "apcerademos/todo:latest"
             },
@@ -19,10 +19,10 @@
                     "fqn": "service::/apcera::outside"
                 },
                 "todo-mysql-binding": {
-                    "fqn": "service::/sandbox/NAME::todo-mysql"
+                    "fqn": "service::/sandbox/<name>::todo-mysql"
                 },
                 "todo-postgres-binding": {
-                    "fqn": "service::/sandbox/NAME::todo-postgres",
+                    "fqn": "service::/sandbox/<name>::todo-postgres",
                     }
                 }
             },
@@ -30,13 +30,13 @@
         }
     },
     "services": {
-        "service::/sandbox/NAME::todo-mysql": {
+        "service::/sandbox/<name>::todo-mysql": {
             "description": "MySQL DB for demo-node-todo",
             "name": "todo-mysql",
             "provider_fqn": "provider::/apcera/providers::mysql",
             "type": "mysql"
         },
-        "service::/sandbox/NAME::todo-postgres": {
+        "service::/sandbox/<name>::todo-postgres": {
             "description": "Postgres DB for demo-node",
             "name": "todo-postgres",
             "provider_fqn": "provider::/apcera/providers::postgres",
