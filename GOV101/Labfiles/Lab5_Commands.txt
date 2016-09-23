@@ -1,0 +1,18 @@
+*********************************************************
+You can copy and paste the command from this text file
+if you wish to do so.
+*********************************************************
+
+--------------------------
+Exercise E:  Step 5.E.5
+--------------------------
+on gateway::/sandbox/<name> {
+  if (role == "<name>") {
+    permit use, promote
+  }
+}
+
+--------------------------
+Exercise E:  Step 5.E.7
+--------------------------
+apc service create heroku_mytest -p provider::/apcera/providers::postgres -- -url postgres://user:pass@local:port/db

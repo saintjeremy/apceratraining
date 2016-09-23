@@ -1,0 +1,24 @@
+*********************************************************
+You can copy and paste the command from this text file
+if you wish to do so.
+*********************************************************
+
+--------------------------
+Exercise A:  Step 4.A.4
+--------------------------
+on quota::/sandbox/<name> {
+  { total.package.size 500MB }
+  { total.memory 2GB }
+  { total.disk 10GB }
+  { total.network 1Gbps }
+}
+
+
+--------------------------
+Exercise B:  Step 4.B.5
+--------------------------
+on quota::/sandbox/<name>::mycap {
+  if (role == "<name>") {
+    max.instances 1
+  }
+}
