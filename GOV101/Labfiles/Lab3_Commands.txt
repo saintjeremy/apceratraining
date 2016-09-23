@@ -1,0 +1,31 @@
+*********************************************************
+You can copy and paste the command from this text file
+if you wish to do so.
+*********************************************************
+
+--------------------------
+Exercise A:  Step 3.A.20
+--------------------------
+on job::/sandbox/<name> {
+  if (role == "<name>") {
+    docker.allow "*"
+    permit create, read, update, delete
+    permit start, stop
+  }
+}
+
+on package::/sandbox/<name> {
+  if (role == "<name>") {
+    permit create, read, update, delete
+    permit use
+  }
+}
+
+--------------------------
+Exercise C:  Step 3.C.5
+--------------------------
+on route::/http/io/kiso  {
+  if (job fqnMatch "job::/sandbox/<name>") {
+    permit map
+  }
+}

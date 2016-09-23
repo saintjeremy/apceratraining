@@ -1,0 +1,32 @@
+*********************************************************
+You can copy and paste the command from this text file
+if you wish to do so.
+*********************************************************
+
+--------------------------
+Exercise B:  Step 2.B.1
+--------------------------
+on job::/sandbox/<name> {
+  if (auth_server@apcera.me->name == "<name>")
+    { role “<name>” }
+}
+
+on package::/sandbox/<name> {
+  if (auth_server@apcera.me->name == "<name>")
+    { role “<name>” }
+}
+
+on quota::/sandbox/<name> {
+  if (auth_server@apcera.me->name == "<name>")
+    { role “<name>” }
+}
+
+on service::/sandbox/<name> {
+  if (auth_server@apcera.me->name == "<name>")
+    { role “<name>” }
+}
+
+on gateway::/sandbox/<name> {
+  if (auth_server@apcera.me->name == "<name>")
+    { role “<name>” }
+}
